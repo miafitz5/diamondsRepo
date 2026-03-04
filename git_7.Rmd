@@ -11,18 +11,88 @@ output:
 knitr::opts_chunk$set(echo = TRUE, warning = TRUE) #change later with messages 
 library(tidyverse)
 library(knitr)
+library(ggplot2)
 ```
 
 
-### R Markdown
+### Filtering Color and Clarity 
 
 
 ```{r}
+diamonds_clean <- diamonds %>%
+  filter(color %in% c("D", "G", "J"), clarity %in% c("I1", "VS1", "IF"))
 
+diamonds_clean %>%
+  count(color, clarity) %>%
+  kable()
+  
 ```
 
 
 ^[Question 1 complete]
+
+
+### Scatterplot of Price Versus Carat 
+
+
+```{r}
+diamonds_clean %>% 
+  ggplot(aes(x = carat, y = price)) +
+  geom_point(alpha = 0.5) +
+  geom_smooth(method = "lm") 
+  
+```
+
+
+Comment on the relationship between diamond price and weight (carat). 
+^[Question 2 complete]
+
+
+### Incorporating Diamond Color
+
+
+```{r}
+diamonds_clean %>% 
+  ggplot(aes(x = carat, y = price, color = color)) +
+  geom_point(alpha = 0.5) +
+  geom_smooth(method = "lm") 
+  
+```
+
+
+Comment on the relationship(s) between diamond price and weight for the different color qualities.
+^[Question 3 complete]
+
+
+### Incorporating Diamond Clarity
+
+
+```{r}
+diamonds_clean %>% 
+  ggplot(aes(x = carat, y = price, color = color, shape = clarity)) +
+  geom_point(alpha = 0.5) +
+  geom_smooth(aes(linetype = clarity), method = "lm") 
+  
+```
+
+Comment on the clarity and readability of the plot.
+^[Question 4 complete]
+
+
+### I
+
+
+```{r}
+diamonds_clean
+  
+```
+
+
+
+
+
+
+
 
 
 
