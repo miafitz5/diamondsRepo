@@ -1,0 +1,28 @@
+---
+title: "git_7"
+author: "Mia Fitzgerald"
+date: "3/3/2026"
+output: 
+  html_document:
+    code_folding: hide
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = TRUE) #change later with messages 
+library(tidyverse)
+library(knitr)
+```
+
+
+### R Markdown
+
+
+```{r}
+
+```
+
+
+^[Question 1 complete]
+
+
+
