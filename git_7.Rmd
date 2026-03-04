@@ -79,20 +79,39 @@ Comment on the clarity and readability of the plot.
 ^[Question 4 complete]
 
 
-### I
+### Incorporating Color and Clarity Through Grid Facet
 
 
 ```{r}
-diamonds_clean
+diamonds_clean %>% 
+  ggplot(aes(x = carat, y = price)) +
+  geom_point(alpha = 0.5) +
+  geom_smooth(method = "lm") + 
+  facet_grid(color ~ clarity)
   
 ```
 
 
+Comment on the relationships between diamond price and weight for the different color qualities and clarities.
+Which color-clarity combination has the steepest relationship?
+^[Question 5 complete]
 
 
+### Which Color-Clarity Combination has the Highest Price per Carat Ratio?
 
 
+```{r}
+diamonds_clean %>% 
+  mutate(ppc = price / carat) %>%
+  group_by(color, clarity) %>%
+  summarize(avg_ppc = mean(ppc)) %>%
+  arrange(desc(avg_ppc)) %>%
+  kable()
+
+```
 
 
+Comment on whether the table generally agrees with your plots. 
+^[Question 6 complete]
 
 
