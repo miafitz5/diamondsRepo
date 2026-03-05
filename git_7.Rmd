@@ -8,7 +8,7 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, warning = TRUE) #change later with messages 
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE) #then push commits 
 library(tidyverse)
 library(knitr)
 library(ggplot2)
@@ -29,6 +29,7 @@ diamonds_clean %>%
 ```
 
 
+I used the diamonds dataset to filter for the specific colors and clarities for the new dataset. I used the new dataset to count the combinations of them. G and VS1 were far above everything else. 
 ^[Question 1 complete]
 
 
@@ -43,8 +44,7 @@ diamonds_clean %>%
   
 ```
 
-
-Comment on the relationship between diamond price and weight (carat). 
+The relationship between diamond price and weight is positive and linear. Meaning, as the weight of the diamond gets bigger, the more expensive it will be. 
 ^[Question 2 complete]
 
 
@@ -60,7 +60,7 @@ diamonds_clean %>%
 ```
 
 
-Comment on the relationship(s) between diamond price and weight for the different color qualities.
+The diamond price of the color D tops the other colors in price. The colors G and J have a lower pricer per carat rate. 
 ^[Question 3 complete]
 
 
@@ -75,7 +75,8 @@ diamonds_clean %>%
   
 ```
 
-Comment on the clarity and readability of the plot.
+
+There is no clarity or readability of this plot due to the noise by all the different colors, shapes, and lines. I don't think this visual is something someone wants to look at for more than a second. 
 ^[Question 4 complete]
 
 
@@ -92,8 +93,7 @@ diamonds_clean %>%
 ```
 
 
-Comment on the relationships between diamond price and weight for the different color qualities and clarities.
-Which color-clarity combination has the steepest relationship?
+Adding the facet grid helped make out what specific combinations are lower or higher visually with regression lines. The color-clarity combination with the steepest relationship is D and IF. The graph also reflects how I1 is such a bad clarity. The J/G and I1 combination being the least steep. 
 ^[Question 5 complete]
 
 
@@ -111,7 +111,7 @@ diamonds_clean %>%
 ```
 
 
-Comment on whether the table generally agrees with your plots. 
-^[Question 6 complete]
+The table does agree with my plots. It is just harder to make out when it isn't expressed as a number. 
+^[Question 6 complete] 
 
 
